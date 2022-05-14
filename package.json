@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aileenchany/Kompass.git"
+    "url": "git+https://github.com/oslabs-beta/Kompass.git"
   },
   "keywords": [],
   "author": "Aileen Chan, Kristin Tillotson, Connor McGuire, Corey Morrison",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aileenchany/Kompass/issues"
+    "url": "https://github.com/oslabs-beta/Kompass/issues"
   },
-  "homepage": "https://github.com/aileenchany/Kompass#readme",
+  "homepage": "https://github.com/oslabs-beta/Kompass#readme",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -37,6 +37,7 @@
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
+    "sass": "^1.51.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
