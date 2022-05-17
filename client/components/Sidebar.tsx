@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,7 +15,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Link from '@mui/material/Link';
 const logo = require('../assets/kompass-logo-gradient-2.png') as string;
 
 /*
@@ -70,7 +70,7 @@ return (
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            <ListItem disablePadding>
+          <ListItem disablePadding>
               <ListItemButton component="a" href="/node">
                 <ListItemText primary="Nodes" />
               </ListItemButton>
@@ -83,8 +83,7 @@ return (
             <ListItemButton component="a" href="cluster">
               <ListItemText primary="Clusters" />
             </ListItemButton>
-          </List>
-                
+          </List>     
         </AccordionDetails>
       </Accordion>
           {['Structure', 'Alerts'].map((text, index) => (
