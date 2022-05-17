@@ -14,7 +14,7 @@ import Sidebar from './components/Sidebar';
 const App = (): JSX.Element => {
   return (
     <>
-      {/* <Navbar /> */}
+      {/* <Navbar/> */}
       <Sidebar />
       <BrowserRouter>
         <Routes>
