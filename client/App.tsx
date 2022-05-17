@@ -8,13 +8,13 @@ import StructurePage from './pages/StructurePage/StructurePage';
 import PodComp from './components/PodComp';
 import NodeComp from './components/NodeComp';
 import ClusterComp from './components/ClusterComp';
-import Navbar from './components/navbar'
-import Sidebar from './components/sidebar'
+// import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 
 const App = (): JSX.Element => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Sidebar/>
     <BrowserRouter>
       <Routes>
