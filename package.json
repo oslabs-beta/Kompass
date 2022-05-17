@@ -2,12 +2,12 @@
   "name": "kompass",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production nodemon server/server.js",
+    "start": "NODE_ENV=production nodemon server/server.ts",
     "build": "NODE_ENV=production webpack",
-    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack serve --open\""
+    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.ts\" \"cross-env NODE_ENV=development webpack serve --open\""
   },
   "repository": {
     "type": "git",
