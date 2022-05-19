@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 const PodComp = (): JSX.Element => {
 return (
-  <div>Pod Component</div>
+  <div style={{background: 'lightPink'}}>Pod Component</div>
 )
 }
 

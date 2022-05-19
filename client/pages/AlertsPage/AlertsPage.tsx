@@ -1,6 +1,11 @@
 import React from 'react';
+import PrometheusAlerts from '../../components/PrometheusAlerts'
 
 const AlertsPage = (): JSX.Element => {
-  return <div>Hello from Alerts Page</div>
+  return (
+    <div className='alertsPage'>
+      <PrometheusAlerts />
+    </div>
+  )
 };
 export default AlertsPage;
