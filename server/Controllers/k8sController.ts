@@ -10,6 +10,17 @@ const k8s = require('@kubernetes/client-node');
 const kc = new k8s.KubeConfig();
 kc.loadFromDefault();
 const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
+console.log(k8sApi);
+// kc.loadFromCluster();
+
+// k8sApi
+//   .listNamespacedPod('default')
+//   .then((res) => {
+//     console.log(res.body);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 //define type
 type k8sControllerType = {
@@ -19,8 +30,10 @@ type k8sControllerType = {
 
 export const k8sController: k8sControllerType = {
   getAllPods: async (req: Request, res: Response, next: NextFunction) => {
+    console.log('In the controller yay!');
     try {
       const podsResult = await k8sApi.listNamespacedPod('default');
+      console.log(podsResult);
       res.locals.podList = podsResult.body;
       return next();
     } catch (err) {
