@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', express.static(path.join(__dirname, '../dist')));
 
-app.get('/metrics/', metricsRouter);
+app.get('/metrics', metricsRouter);
 
 // catch-all router handler for any request to an unknown route
 app.use('*', (req, res) => {
