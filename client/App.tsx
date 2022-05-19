@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { JsxElement } from 'typescript';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AlertsPage from './pages/AlertsPage/AlertsPage';
 import MetricsPage from './pages/MetricsPage/MetricsPage';
@@ -11,11 +12,14 @@ import ClusterComp from './components/ClusterComp';
 // import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 
+
+
 const App = (): JSX.Element => {
+
+
   return (
-    <>
-      {/* <Navbar/> */}
-      <Sidebar />
+    <> 
+      <Sidebar/>    
       <BrowserRouter>
         <Routes>
           <Route path='/metrics' element={<MetricsPage />} />
@@ -26,7 +30,7 @@ const App = (): JSX.Element => {
           <Route path='/alerts' element={<AlertsPage />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </>    // </ThemeProvider>
   );
 };
 

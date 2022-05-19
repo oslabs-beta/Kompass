@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,7 +15,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Link from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
+import GitHubIcon from '@mui/icons-material/GitHub';
 const logo = require('../assets/kompass-logo-gradient-2.png') as string;
 
 /*
@@ -41,6 +43,15 @@ return (
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
+        <Toolbar>
+          {/* <IconButton aria-label="github icon" component="span">
+            <GitHubIcon href="https://github.com/oslabs-beta/Kompass" target="_blank" sx={{ fontSize: 35, color: 'white'}} />
+          </IconButton> */}
+          {/* <GitHubIcon component={Link} to="http://www.google.com" target="_blank" /> */}
+          <a href="https://github.com/oslabs-beta/Kompass" target="_blank">
+            <GitHubIcon sx={{ fontSize: 35, color: 'white'}}/>
+            </a>
+        </Toolbar>
       </AppBar>
       <Drawer
         sx={{
@@ -55,7 +66,8 @@ return (
         anchor="left"
       >
         <Toolbar />
-        <img src={String(logo)} alt='Kompass' style={{width:200}}  />
+        <img src={String(logo)} alt='Kompass' style={{width:220}}  />
+       
         <Divider />
         <List>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -70,7 +82,7 @@ return (
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            <ListItem disablePadding>
+          <ListItem disablePadding>
               <ListItemButton component="a" href="/node">
                 <ListItemText primary="Nodes" />
               </ListItemButton>
@@ -83,8 +95,7 @@ return (
             <ListItemButton component="a" href="cluster">
               <ListItemText primary="Clusters" />
             </ListItemButton>
-          </List>
-                
+          </List>     
         </AccordionDetails>
       </Accordion>
           {['Structure', 'Alerts'].map((text, index) => (
