@@ -8,7 +8,7 @@ import express, {
 } from 'express';
 import { ServerError } from '../types';
 const metricsRouter = require('./routers/metricsRouter');
-const PORT = 3000;
+const PORT = 3036;
 
 // invoke express
 const app = express();
