@@ -10,9 +10,8 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => ({
   // create functions that will dispatch action creators
   // getPods: () => dispatch(actions.getPods()),
-  getPods: async () => {
-    let pods = await actions.getPods;
-    dispatch(actions.getPods(pods));
+  getPods: async (data: any) => {
+    dispatch(actions.getPods(data));
   },
 });
 
@@ -20,16 +19,13 @@ const StructurePage = (props: any): JSX.Element => {
   const podsList = [];
 
   useEffect(() => {
-    // const fetchPodData = async () => {
-    //   const data = await fetch('api/structure/pod');
-    //   const json = await data.json();
-    //   console.log(json);
+    const fetchPodData = async () => {
+      const data = await fetch('api/structure/pod');
+      const json = await data.json();
+      return json;
+    };
 
-    //   // console.log('data HERE', JSON.parse(data));
-    // };
-    // fetchPodData();
-
-    props.getPods();
+    props.getPods(fetchPodData());
 
     // const response = await fetch(request);
     // const body = await response.json();
@@ -43,6 +39,7 @@ const StructurePage = (props: any): JSX.Element => {
     //   .then((data) => {
     //     console.log('MAKE FETCH HAPPEN', data);
     //   });
+    console.log('CHECK STATE', props.state);
   });
 
   return (

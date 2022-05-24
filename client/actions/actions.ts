@@ -8,7 +8,7 @@ import * as actionTypes from './actionTypes';
 
 export const getPods = (podsList: any | null) => ({
   type: actionTypes.GET_PODS,
-  // payload: podsList,
+  payload: podsList,
 });
 
 export const getNodes = (nodesList: any) => ({
