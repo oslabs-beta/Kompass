@@ -10,6 +10,8 @@ export const store = configureStore({
     nodes: nodeReducer,
     cluster: clusterReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export type AppDispatch = typeof store.dispatch;
