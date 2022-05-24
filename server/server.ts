@@ -7,7 +7,7 @@ import express, {
   RequestHandler,
 } from 'express';
 import { ServerError } from '../types';
-const metricsRouter = require('./routers/metricsRouter');
+const structureRouter = require('./routers/structureRouter');
 const PORT = 3036;
 
 // invoke express
@@ -16,10 +16,9 @@ const app = express();
 // parse request body using express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use('/', express.static(path.join(__dirname, '../dist')));
 
-app.get('/metrics', metricsRouter);
+app.use('/api/structure', structureRouter);
 
 // catch-all router handler for any request to an unknown route
 app.use('*', (req, res) => {

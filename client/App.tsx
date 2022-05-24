@@ -12,25 +12,29 @@ import ClusterComp from './components/ClusterComp';
 // import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 
-
-
 const App = (): JSX.Element => {
-
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
 
   return (
-    <> 
-      <Sidebar/>    
-      <BrowserRouter>
-        <Routes>
-          <Route path='/metrics' element={<MetricsPage />} />
-          <Route path='/pod' element={<PodComp />} />
-          <Route path='/node' element={<NodeComp />} />
-          <Route path='/cluster' element={<ClusterComp />} />
-          <Route path='/structure' element={<StructurePage />} />
-          <Route path='/alerts' element={<AlertsPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>    // </ThemeProvider>
+    <>
+      <ThemeProvider theme={darkTheme}>
+        <Sidebar />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/metrics' element={<MetricsPage />} />
+            <Route path='/pod' element={<PodComp />} />
+            <Route path='/node' element={<NodeComp />} />
+            <Route path='/cluster' element={<ClusterComp />} />
+            <Route path='/Structure' element={<StructurePage />} />
+            <Route path='/alerts' element={<AlertsPage />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </>
   );
 };
 
