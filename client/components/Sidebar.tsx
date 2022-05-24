@@ -36,21 +36,21 @@ const Sidebar = (): JSX.Element => {
       setExpanded(isExpanded ? panel : false);
     };
 
-return (
-<Box sx={{ display: 'flex' }}>
+  return (
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        position='fixed'
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
-        <Toolbar>
+        <Toolbar style={{ justifyContent: 'flex-end' }}>
           {/* <IconButton aria-label="github icon" component="span">
             <GitHubIcon href="https://github.com/oslabs-beta/Kompass" target="_blank" sx={{ fontSize: 35, color: 'white'}} />
           </IconButton> */}
           {/* <GitHubIcon component={Link} to="http://www.google.com" target="_blank" /> */}
-          <a href="https://github.com/oslabs-beta/Kompass" target="_blank">
-            <GitHubIcon sx={{ fontSize: 35, color: 'white'}}/>
-            </a>
+          <a href='https://github.com/oslabs-beta/Kompass' target='_blank'>
+            <GitHubIcon sx={{ fontSize: 35, color: 'white' }} />
+          </a>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -62,45 +62,48 @@ return (
             boxSizing: 'border-box',
           },
         }}
-        variant="permanent"
-        anchor="left"
+        variant='permanent'
+        anchor='left'
       >
         <Toolbar />
-        <img src={String(logo)} alt='Kompass' style={{width:220}}  />
-       
+        <img src={String(logo)} alt='Kompass' style={{ width: 220 }} />
+
         <Divider />
         <List>
-        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Metrics
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <List>
-          <ListItem disablePadding>
-              <ListItemButton component="a" href="/node">
-                <ListItemText primary="Nodes" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton component="a" href="/pod">
-                <ListItemText primary="Pods" />
-              </ListItemButton>
-            </ListItem>
-            <ListItemButton component="a" href="cluster">
-              <ListItemText primary="Clusters" />
-            </ListItemButton>
-          </List>     
-        </AccordionDetails>
-      </Accordion>
+          <Accordion
+            expanded={expanded === 'panel1'}
+            onChange={handleChange('panel1')}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls='panel1bh-content'
+              id='panel1bh-header'
+            >
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                Metrics
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton component='a' href='/node'>
+                    <ListItemText primary='Nodes' />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton component='a' href='/pod'>
+                    <ListItemText primary='Pods' />
+                  </ListItemButton>
+                </ListItem>
+                <ListItemButton component='a' href='cluster'>
+                  <ListItemText primary='Clusters' />
+                </ListItemButton>
+              </List>
+            </AccordionDetails>
+          </Accordion>
           {['Structure', 'Alerts'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton component='a' href={text}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -109,11 +112,10 @@ return (
         <Divider />
       </Drawer>
       <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default' , p: 3 }}
-      >
-      </Box>
+        component='main'
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+      ></Box>
     </Box>
-  )
+  );
 };
 export default Sidebar;
