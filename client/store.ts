@@ -6,8 +6,8 @@ import clusterReducer from './reducers/clusterReducer';
 
 export const store = configureStore({
   reducer: {
-    pods: podReducer,
-    nodes: nodeReducer,
+    podList: podReducer,
+    nodeList: nodeReducer,
     cluster: clusterReducer,
   },
   middleware: (getDefaultMiddleware) =>
