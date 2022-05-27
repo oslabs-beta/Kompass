@@ -11,7 +11,7 @@ data:
             {
                "access":"proxy",
                 "editable": true,
-                "name": "prometheus",
+                "name": "Prometheus",
                 "orgId": 1,
                 "type": "prometheus",
                 "url": "http://prometheus-service.monitoring.svc:8080",

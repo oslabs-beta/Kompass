@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: grafana
   namespace: monitoring
+  labels:
+    app: grafana
 spec:
   replicas: 1
   selector:
@@ -28,28 +30,39 @@ spec:
               memory: 500M
               cpu: '500m'
           volumeMounts:
-            - mountPath: /var/lib/grafana
-              name: grafana-storage
-            - mountPath: /etc/grafana/provisioning/datasources
-              name: grafana-datasources
+            - name: grafana-config
+              mountPath: /etc/grafana/grafana.ini
+              subPath: grafana.ini
+            - name: grafana-storage
+              mountPath: /var/lib/grafana
+            - name: grafana-datasources
+              mountPath: /etc/grafana/provisioning/datasources
               readOnly: false
-            - mountPath: /etc/grafana/provisioning/dashboards
-              name: grafana-dashboards
+            - name: grafana-dashboard-providers
+              mountPath: /etc/grafana/provisioning/dashboards
               readOnly: false
+            - name: dashboard-1
+              mountPath: /var/lib/grafana/dashboards/dashboard-1
           env:
             - name: GF_SECURITY_ALLOW_EMBEDDING
               value: 'true'
-            # - name: GF_AUTH_ANONYMOUS_ENABLED
-            #   value: 'true'
-            # - name: GF_AUTH_ANONYMOUS_ORG_ROLE
-            #   value: 'Admin'
+            - name: GF_AUTH_ANONYMOUS_ENABLED
+              value: 'true'
+            - name: GF_AUTH_ANONYMOUS_ORG_ROLE
+              value: 'Admin'
       volumes:
+        - name: grafana-config
+          configMap:
+            name: grafana-ini
         - name: grafana-storage
           emptyDir: {}
         - name: grafana-datasources
           configMap:
             defaultMode: 420
             name: grafana-datasources
-        - name: grafana-dashboards
+        - name: grafana-dashboard-providers
           configMap:
-            name: grafana-dashboards
+            name: grafana-dashboard-providers
+        - name: dashboard-1
+          configMap:
+            name: dashboard-1 
