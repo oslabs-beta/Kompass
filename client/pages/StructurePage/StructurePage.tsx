@@ -1,15 +1,17 @@
 import { ActionTypes } from '@mui/base';
 import { ConstructionRounded } from '@mui/icons-material';
-import React, { useEffect, Component } from 'react';
+import React, { useEffect, Component, useState } from 'react';
 import { connect } from 'react-redux';
 import { node } from 'webpack';
 import * as actions from '../../actions/actions';
-// import { nodeState } from '../../reducers/nodeReducer';
 import { RootState } from '../../store';
+import NodeComp from '../../components/NodeStructure';
+import NodeStructure from '../../components/NodeStructure';
 
 const mapStateToProps = (state: RootState) => ({
   podList: state.podList,
   nodeList: state.nodeList,
+  // deplList: state.deplList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -38,16 +40,37 @@ const mapDispatchToProps = (dispatch: any) => ({
       })
       .catch((err) => console.log('Error in the fetchNodeData:', err));
   },
+
+  // fetchDeplData: (): void => {
+  //   fetch('api/structure/node', {
+  //     method: 'GET',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((deplList) => {
+  //       // console.log('node HERE:', nodeList);
+  //       dispatch(actions.getDepl(deplList));
+  //     })
+  //     .catch((err) => console.log('Error in the fetchDeplData:', err));
+  // },
 });
 
 type KubeState = {
   nodeList?: any;
   podList?: any;
+  deplList?: any;
   fetchPodData: () => void;
   fetchNodeData: () => void;
+  // NodeStructure: React.ComponentType<NodeProps>;
+  // fetchDeplData: () => void;
 };
 
-class StructurePage extends Component<KubeState> {
+interface NodeProps {
+  // [key: string]: any;
+  nodeInfo: any;
+}
+
+// class StructurePage extends Component<KubeState, NodeProps> {
+class StructurePage extends Component<KubeState, NodeProps> {
   // constructor(props: any) {
   //   super(props);
   // }
@@ -55,12 +78,22 @@ class StructurePage extends Component<KubeState> {
   componentDidMount(): void {
     this.props.fetchNodeData();
     this.props.fetchPodData();
+    // this.props.fetchDeplData();
   }
 
   render() {
-    console.log('CHECK STATE POD', this.props.podList);
-    console.log('CHECK STATE NODE', this.props.nodeList);
-
+    // console.log('CHECK STATE POD', this.props.podList);
+    // console.log('CHECK STATE NODE', this.props.nodeList);
+    // console.log('CHECK STATE DEPL', this.props.deplList);
+    // { [key: string]: any }
+    // const allNodes: [] =
+    const node: any = this.props.nodeList.nodeList[0];
+    // const pod: any = this.props.podList
+    // const items = node.items;
+    // // const { nodeStatus } = node.nodeList.nodeStatus;
+    // if (node) {
+    //   console.log('node', node.items);
+    // }
     return (
       <div
         style={{
@@ -74,6 +107,12 @@ class StructurePage extends Component<KubeState> {
         }}
       >
         Hello from Structure Page
+        {node && (
+          <NodeStructure
+            nodeInfo={node.items}
+            nodeStatus={node.nodeStatus.items}
+          />
+        )}
       </div>
     );
   }
