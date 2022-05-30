@@ -81,8 +81,8 @@ class StructurePage extends Component<KubeState, NodeProps> {
     return (
       <div
         style={{
-          background: 'lightblue',
           color: 'white',
+          // background: 'red',
           marginLeft: '250px',
           marginTop: '25px',
           marginRight: '10px',
@@ -90,14 +90,25 @@ class StructurePage extends Component<KubeState, NodeProps> {
           // width: 'vw',
         }}
       >
-        Hello from Structure Page
-        {node && (
-          <NodeStructure
-            nodeInfo={node.items}
-            nodeStatus={node.nodeStatus.items}
-          />
-        )}
-        {pod && <PodStructure podInfo={pod.body} />}
+        <div className='boxes'>
+          <header>
+            <h1>Pod Structure</h1>
+          </header>
+          {pod && <PodStructure podInfo={pod.body} />}
+        </div>
+        <hr></hr>
+
+        <div className='boxes'>
+          <header>
+            <h1>Node Structure</h1>
+          </header>
+          {node && (
+            <NodeStructure
+              nodeInfo={node.items}
+              nodeStatus={node.nodeStatus.items}
+            />
+          )}
+        </div>
       </div>
     );
   }

@@ -17,6 +17,9 @@ const App = (): JSX.Element => {
     palette: {
       mode: 'dark',
     },
+    typography: {
+      fontFamily: ['Montserrat', 'sans-serif'].join(','),
+    },
   });
 
   return (
