@@ -14,7 +14,7 @@ const NodeComp = (): JSX.Element => {
     >
       {' '}
       <iframe
-        src='http://localhost:3000/goto/KzGBetrnz?orgId=1'
+        src='http://localhost:3000/d/K0MPA5512/kubernetes-namespace-overview?orgId=1'
         width='100%'
         height='1500px'
         frameBorder='0'

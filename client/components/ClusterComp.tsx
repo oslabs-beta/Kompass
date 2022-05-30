@@ -13,7 +13,7 @@ const ClusterComp = (): JSX.Element => {
       }}
     >
       <iframe
-        src='http://localhost:3000/goto/OcArghrnk?orgId=1'
+        src='http://localhost:3000/d/K0MPA5511/kubernetes-cluster-overview?orgId=1'
         width='100%'
         height='1500px'
         frameBorder='0'

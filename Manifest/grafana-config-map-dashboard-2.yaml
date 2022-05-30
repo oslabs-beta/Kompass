@@ -509,6 +509,7 @@ data:
       },
       "timezone": "browser",
       "title": "Kubernetes: Namespace Overview",
+      "uid": "K0MPA5512",
       "weekStart": ""
     }
 kind: ConfigMap

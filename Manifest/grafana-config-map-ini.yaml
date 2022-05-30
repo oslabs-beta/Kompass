@@ -9,6 +9,10 @@ data:
       enable_gzip = true
     [security]
       allow_embedding = true
+    [auth.anonymous]
+      enabled = true
+      org_name = Main Org.
+      org_role = Viewer
     [analytics]
       reporting_enabled = false
       check_for_updates = true
