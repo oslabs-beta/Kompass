@@ -38,12 +38,11 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 450,
   maxHeight: 500,
-  backgroundColor: '#7EC6D6',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
-  borderRadius: 10,
-  color: '#313338',
+  borderRadius: 5,
+  color: 'whitesmoke',
   overflowY: 'auto',
 };
 
@@ -104,7 +103,7 @@ const PodModal = (props: any): JSX.Element => {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box sx={style} className='modal'>
           {/* <Button
             variant='contained'
             color='error'

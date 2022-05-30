@@ -86,7 +86,7 @@ class StructurePage extends Component<KubeState, NodeProps> {
           marginLeft: '250px',
           marginTop: '25px',
           marginRight: '10px',
-          height: '1000px',
+          height: '900px',
           // width: 'vw',
         }}
       >

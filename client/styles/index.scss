@@ -195,3 +195,25 @@ h1 {
 //     rgba(220, 225, 235, 1) 0%,
 //     rgba(126, 198, 214, 1) 100%
 //   ); 1A9AD0
+
+.modal {
+  background: hsla(223, 7%, 21%, 1);
+
+  background: linear-gradient(
+    315deg,
+    hsla(223, 7%, 21%, 1) 0%,
+    hsla(223, 8%, 31%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    315deg,
+    hsla(223, 7%, 21%, 1) 0%,
+    hsla(223, 8%, 31%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    315deg,
+    hsla(223, 7%, 21%, 1) 0%,
+    hsla(223, 8%, 31%, 1) 100%
+  );
+}
