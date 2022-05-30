@@ -43,6 +43,8 @@ spec:
               readOnly: false
             - name: dashboard-1
               mountPath: /var/lib/grafana/dashboards/dashboard-1
+            - name: dashboard-2
+              mountPath: /var/lib/grafana/dashboards/dashboard-2
           env:
             - name: GF_SECURITY_ALLOW_EMBEDDING
               value: 'true'
@@ -66,3 +68,6 @@ spec:
         - name: dashboard-1
           configMap:
             name: dashboard-1 
+        - name: dashboard-2
+          configMap:
+            name: dashboard-2 

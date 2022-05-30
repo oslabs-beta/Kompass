@@ -14,7 +14,7 @@ const NodeComp = (): JSX.Element => {
     >
       {' '}
       <iframe
-        src='http://localhost:3000/goto/5F-CEJX7k'
+        src='http://localhost:3000/goto/KzGBetrnz?orgId=1'
         width='100%'
         height='1500px'
         frameBorder='0'

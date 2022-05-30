@@ -13,12 +13,12 @@ const ClusterComp = (): JSX.Element => {
       }}
     >
       <iframe
-        src='http://localhost:3000/goto/_6zhE1X7z'
+        src='http://localhost:3000/goto/OcArghrnk?orgId=1'
         width='100%'
         height='1500px'
         frameBorder='0'
       ></iframe>
-      <iframe
+      {/* <iframe
         src='http://localhost:3000/d-solo/JfnpyoX7za/akubernetes-cluster-monitoring-via-prometheus?orgId=1&refresh=10s&from=1652975306592&to=1652976206592&panelId=4'
         width='48%'
         height='200'
@@ -83,7 +83,7 @@ const ClusterComp = (): JSX.Element => {
         width='100%'
         height='200'
         frameBorder='0'
-      ></iframe>
+      ></iframe> */}
     </div>
   );
 };
