@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: kompass-depl
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: kompass

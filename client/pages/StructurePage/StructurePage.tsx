@@ -7,6 +7,7 @@ import * as actions from '../../actions/actions';
 import { RootState } from '../../store';
 import NodeComp from '../../components/NodeStructure';
 import NodeStructure from '../../components/NodeStructure';
+import PodStructure from '../../components/PodStructure';
 
 const mapStateToProps = (state: RootState) => ({
   podList: state.podList,
@@ -40,18 +41,6 @@ const mapDispatchToProps = (dispatch: any) => ({
       })
       .catch((err) => console.log('Error in the fetchNodeData:', err));
   },
-
-  // fetchDeplData: (): void => {
-  //   fetch('api/structure/node', {
-  //     method: 'GET',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((deplList) => {
-  //       // console.log('node HERE:', nodeList);
-  //       dispatch(actions.getDepl(deplList));
-  //     })
-  //     .catch((err) => console.log('Error in the fetchDeplData:', err));
-  // },
 });
 
 type KubeState = {
@@ -82,17 +71,12 @@ class StructurePage extends Component<KubeState, NodeProps> {
   }
 
   render() {
-    // console.log('CHECK STATE POD', this.props.podList);
-    // console.log('CHECK STATE NODE', this.props.nodeList);
-    // console.log('CHECK STATE DEPL', this.props.deplList);
-    // { [key: string]: any }
-    // const allNodes: [] =
     const node: any = this.props.nodeList.nodeList[0];
-    // const pod: any = this.props.podList
+    const pod: any = this.props.podList.podList[0];
     // const items = node.items;
     // // const { nodeStatus } = node.nodeList.nodeStatus;
-    // if (node) {
-    //   console.log('node', node.items);
+    // if (pod) {
+    //   console.log('pod', pod);
     // }
     return (
       <div
@@ -113,6 +97,7 @@ class StructurePage extends Component<KubeState, NodeProps> {
             nodeStatus={node.nodeStatus.items}
           />
         )}
+        {pod && <PodStructure podInfo={pod.body} />}
       </div>
     );
   }

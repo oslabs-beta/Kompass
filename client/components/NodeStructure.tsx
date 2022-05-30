@@ -23,13 +23,14 @@ KubeletVersion: nodeInfo[0].status.nodeInfo.kubeletVersion
 */
 
 const NodeStructure = (props: any): JSX.Element => {
-  console.log('nodeInfo', props.nodeInfo);
-  console.log('nodeStatus', props.nodeStatus);
+  // console.log('nodeInfo', props.nodeInfo);
+  // console.log('nodeStatus', props.nodeStatus);
 
   const { metadata, status } = props.nodeInfo[0];
   const { nodeInfo, conditions } = status;
+  const nodeStatus = props.nodeStatus;
 
-  console.log('nodeInfo', nodeInfo);
+  // console.log('nodeInfo', nodeInfo);
 
   return (
     <div
@@ -50,6 +51,8 @@ const NodeStructure = (props: any): JSX.Element => {
         <p>CPU Allocated: {status.allocatable.cpu}</p>
         <p>CPU Capacity: {status.capacity.cpu}</p>
         <p>CPU Cores: {status.allocatable.cpu}</p>
+        <p>Ephemeral Storage: {status.allocatable['ephemeral-storage']}</p>
+        <p>Memory: {status.allocatable.memory}</p>
         <p>Pods Allocated: {status.allocatable.pods}</p>
         <p>Pods Capacity: {status.capacity.pods}</p>
       </div>
@@ -63,6 +66,18 @@ const NodeStructure = (props: any): JSX.Element => {
                   <p>Type: {condition.type}</p>
                   <p>Message: {condition.message}</p>
                   <p>Last Heartbeat Time: {condition.lastHeartbeatTime}</p>
+                </div>
+              );
+            })}
+        </div>
+        <div>
+          <strong>Node Status:</strong>{' '}
+          {nodeStatus.length &&
+            nodeStatus.map((status: any, index: number) => {
+              return (
+                <div key={`status${index}`}>
+                  <p>Type: {status.metadata.name}</p>
+                  <p>Status: {status.conditions[0].type}</p>
                 </div>
               );
             })}

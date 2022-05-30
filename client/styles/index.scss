@@ -1,3 +1,40 @@
 body {
   background-color: aquamarine;
+  margin: 0;
+  padding: 0;
+}
+
+.podContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pod {
+  position: relative;
+  width: 200px;
+  height: relative;
+  margin: 20px 20px;
+  background: #3c3b3b;
+  border-radius: 50% / 10%;
+  color: white;
+  text-align: center;
+  text-indent: 0.1em;
+  z-index: 2;
+  box-shadow: 10px 8px 15px 0 rgba(220, 225, 235, 0.7);
+}
+.pod:after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: -5%;
+  left: -5%;
+  background: inherit;
+  border-radius: 5% / 50%;
+  z-index: -1;
+}
+
+.podInfo {
+  z-index: 100;
+  padding: 1em;
 }
