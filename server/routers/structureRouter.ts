@@ -12,7 +12,7 @@ structureRouter.get(
   '/node',
   k8sController.getAllNodes,
   (req: Request, res: Response) => {
-    res.status(200).json(res.locals);
+    res.status(200).json(res.locals.nodeList);
   }
 );
 
@@ -23,6 +23,14 @@ structureRouter.get(
     res.status(200).json(res.locals.podList);
   }
 );
+
+// structureRouter.get(
+//   '/depl',
+//   k8sController.getAllPods,
+//   (req: Request, res: Response) => {
+//     res.status(200).json(res.locals.deplList);
+//   }
+// );
 
 // structureRouter.get(
 //   '/topPod',

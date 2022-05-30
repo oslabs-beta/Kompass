@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
-const logo = require('../assets/kompass-logo-gradient-2.png') as string;
+const logo = require('../assets/kompass-logo-white.png') as string;
 
 /*
 This is the main nav bar that sits on the left of the screen and allows users
