@@ -1237,6 +1237,7 @@ data:
         },
         "timezone": "browser",
         "title": "Kubernetes: Cluster Overview",
+        "uid": "K0MPA5511",
         "weekStart": ""
       }
 kind: ConfigMap
