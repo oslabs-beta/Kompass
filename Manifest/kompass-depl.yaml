@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: kompass-depl
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: kompass
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kompass
-          image: kubermetrics/kubermetrics:latest
+          image: kompass/kompass:latest
 ---
 apiVersion: v1
 kind: Service

@@ -10,6 +10,8 @@ const k8s = require('@kubernetes/client-node');
 const kc = new k8s.KubeConfig();
 kc.loadFromDefault();
 const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
+const k8sApi2 = kc.makeApiClient(k8s.AppsV1Api);
+
 const metricsClient = new k8s.Metrics(kc);
 
 // console.log(k8sApi);
@@ -19,6 +21,8 @@ const metricsClient = new k8s.Metrics(kc);
 type k8sControllerType = {
   getAllPods: (req: Request, res: Response, next: NextFunction) => void;
   getAllNodes: (req: Request, res: Response, next: NextFunction) => void;
+  // getDeployments: (req: Request, res: Response, next: NextFunction) => void;
+
   // getTopPod: (req: Request, res: Response, next: NextFunction) => void;
 };
 
@@ -50,10 +54,11 @@ export const k8sController: k8sControllerType = {
     console.log('In the getAllNodes controller yay!');
     try {
       const nodeResult = await k8sApi.listNode('default');
+      // console.log('contrl', nodeResult.body);
       res.locals.nodeList = nodeResult.body;
 
       const nodeStatus = await k8sApi.listComponentStatus();
-      res.locals.nodeStatus = nodeStatus;
+      res.locals.nodeList.nodeStatus = nodeStatus.body;
 
       return next();
     } catch (err) {
@@ -61,6 +66,19 @@ export const k8sController: k8sControllerType = {
       return next(err);
     }
   },
+
+  // getDeployments: async (req: Request, res: Response, next: NextFunction) => {
+  //   console.log('In the getDeployments controller yay!');
+  //   try {
+  //     const deplResult = await k8sApi2.listNamespacedDeployment('default');
+  //     res.locals.deplList = deplResult;
+
+  //     return next();
+  //   } catch (err) {
+  //     console.log('Error in k8Controller getAllNodes', err);
+  //     return next(err);
+  //   }
+  // },
 
   // getTopPod: async (req: Request, res: Response, next: NextFunction) => {
   //   console.log('In the getTopPod controller yay!');

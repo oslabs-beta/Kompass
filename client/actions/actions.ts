@@ -16,7 +16,12 @@ export const getNodes = (nodesList: any) => ({
   payload: nodesList,
 });
 
-export const getCluster = (cluster: any) => ({
-  type: actionTypes.GET_CLUSTER,
-  payload: cluster,
+// export const getCluster = (cluster: any) => ({
+//   type: actionTypes.GET_CLUSTER,
+//   payload: cluster,
+// });
+
+export const getDepl = (depl: any) => ({
+  type: actionTypes.GET_DEPL,
+  payload: depl,
 });

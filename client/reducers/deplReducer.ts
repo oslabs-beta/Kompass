@@ -2,18 +2,18 @@
 // import { AnyAction } from 'redux';
 
 // const initialState = {
-//   clusters: [],
+//   depl: [],
 // };
 
-// const clusterReducer = (state = initialState, action: AnyAction) => {
+// const deplReducer = (state = initialState, action: AnyAction) => {
 //   const { type, payload } = action;
 
 //   switch (type) {
-//     case types.GET_CLUSTER:
-//       return { ...state, clusters: action.payload };
+//     case types.GET_DEPL:
+//       return { ...state, depl: action.payload };
 //     default:
 //       return state;
 //   }
 // };
 
-// export default clusterReducer;
+// export default deplReducer;
