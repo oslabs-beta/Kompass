@@ -508,7 +508,7 @@ data:
         ]
       },
       "timezone": "browser",
-      "title": "Kubernetes: POD Overview",
+      "title": "Kubernetes: Namespace Overview",
       "weekStart": ""
     }
 kind: ConfigMap
