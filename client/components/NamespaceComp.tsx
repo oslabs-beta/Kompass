@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ClusterComp = (): JSX.Element => {
+const NamespaceComp = (): JSX.Element => {
   return (
     <div
       style={{
-        // background: 'black',
+        // background: 'black  ',
         marginLeft: '250px',
         marginTop: '25px',
         marginRight: '10px',
@@ -12,6 +12,7 @@ const ClusterComp = (): JSX.Element => {
         width: 'vw',
       }}
     >
+      {' '}
       <div
         className='boxes'
         style={{
@@ -21,18 +22,16 @@ const ClusterComp = (): JSX.Element => {
         }}
       >
         <header>
-          <h1>Cluster Metrics </h1>
+          <h1>Namespace Metrics </h1>
         </header>
-        <div>
-          <iframe
-            src='http://localhost:3000/d/K0MPA5511/kubernetes-cluster-overview?orgId=1'
-            width='100%'
-            height='1500px'
-            frameBorder='0'
-          ></iframe>
-        </div>
+        <iframe
+          src='http://localhost:3000/d/K0MPA5512/kubernetes-namespace-overview?orgId=1'
+          width='100%'
+          height='1500px'
+          frameBorder='0'
+        ></iframe>
       </div>
     </div>
   );
 };
-export default ClusterComp;
+export default NamespaceComp;
