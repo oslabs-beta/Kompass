@@ -16,13 +16,13 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: [
-              '@babel/plugin-transform-runtime',
-              '@babel/transform-async-to-generator',
-            ],
-          },
+          // options: {
+          //   presets: ['@babel/preset-env', '@babel/preset-react'],
+          //   plugins: [
+          //     '@babel/plugin-transform-runtime',
+          //     '@babel/transform-async-to-generator',
+          //   ],
+          // },
         },
       },
       {
@@ -37,7 +37,12 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: ['file-loader'],
+        exclude: /(node_modules)/,
+        // loader: 'file-loader',
+        // options: {
+        //   name: 'assets/[name].[ext]'
+        // }
+        type: 'asset/resource',
       },
     ],
   },
@@ -62,7 +67,7 @@ module.exports = {
     compress: true,
     hot: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api/**': 'http://localhost:3036',
       secure: false,
     },
   },

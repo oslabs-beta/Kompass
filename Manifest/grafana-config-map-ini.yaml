@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-ini
+  namespace: monitoring
+data:
+  grafana.ini: |
+    [server]
+      enable_gzip = true
+    [security]
+      allow_embedding = true
+    [auth.anonymous]
+      enabled = true
+      org_name = Main Org.
+      org_role = Viewer
+    [analytics]
+      reporting_enabled = false
+      check_for_updates = true
+    [log]
+      mode = console
+      level = info
+    [paths]
+      data         = /var/lib/grafana/data
+      logs         = /var/log/grafana
+      plugins      = /var/lib/grafana/plugins
+      provisioning = /etc/grafana/provisioning
