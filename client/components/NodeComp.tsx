@@ -6,7 +6,7 @@ const NodeComp = (): JSX.Element => {
       style={{
         background: 'black  ',
         marginLeft: '190px',
-        marginTop: '-90px',
+        marginTop: '-35px',
         marginRight: '10px',
         height: 'vh',
         width: 'vw',

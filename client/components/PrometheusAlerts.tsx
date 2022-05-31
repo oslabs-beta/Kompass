@@ -3,14 +3,14 @@ import React from 'react';
 const PrometheusAlerts = (): JSX.Element => {
   return (
     <div
-      style={{
-        background: 'black',
-        marginLeft: '190px',
-        marginTop: '-90px',
-        marginRight: '10px',
-        height: 'vh',
-        width: 'vw',
-      }}
+    // style={{
+    //   background: 'black',
+    //   marginLeft: '190px',
+    //   marginTop: '-90px',
+    //   marginRight: '10px',
+    //   height: 'vh',
+    //   width: 'vw',
+    // }}
     >
       <iframe
         src='http://localhost:9090/alerts'
@@ -19,6 +19,6 @@ const PrometheusAlerts = (): JSX.Element => {
         frameBorder='0'
       ></iframe>
     </div>
-  )
+  );
 };
 export default PrometheusAlerts;
