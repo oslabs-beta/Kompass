@@ -5,17 +5,16 @@ const AlertsPage = (): JSX.Element => {
   return (
     <div
       style={{
-        background: 'blue',
+        background: 'black',
         color: 'white',
-        marginLeft: '250px',
-        marginTop: '25px',
-        marginRight: '10px',
+        marginLeft: '240px',
+        marginTop: '15px',
+        // marginRight: '10px',
         height: '1000px',
         // width: 'vw',
       }}
       className='alertsPage'
     >
-      hello from alerts
       <PrometheusAlerts />
     </div>
   );
