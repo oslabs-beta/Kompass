@@ -86,18 +86,18 @@ const Sidebar = (): JSX.Element => {
             <AccordionDetails>
               <List>
                 <ListItem disablePadding>
-                  <ListItemButton component='a' href='/node'>
-                    <ListItemText primary='Nodes' />
+                  <ListItemButton component='a' href='/'>
+                    <ListItemText primary='Clusters' />
                   </ListItemButton>
                 </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton component='a' href='/pod'>
-                    <ListItemText primary='Pods' />
-                  </ListItemButton>
-                </ListItem>
-                <ListItemButton component='a' href='cluster'>
-                  <ListItemText primary='Clusters' />
+                <ListItemButton component='a' href='/namespace'>
+                  <ListItemText primary='Namespace' />
                 </ListItemButton>
+                {/* <ListItem disablePadding>
+                  <ListItemButton component='a' href='/pod'>
+                  <ListItemText primary='Pods' />
+                  </ListItemButton>
+                </ListItem> */}
               </List>
             </AccordionDetails>
           </Accordion>

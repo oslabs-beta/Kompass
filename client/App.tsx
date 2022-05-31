@@ -4,12 +4,11 @@ import { JsxElement } from 'typescript';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AlertsPage from './pages/AlertsPage/AlertsPage';
-import MetricsPage from './pages/MetricsPage/MetricsPage';
+// import MetricsPage from './pages/MetricsPage/MetricsPage';
 import StructurePage from './pages/StructurePage/StructurePage';
 import PodComp from './components/PodComp';
-import NodeComp from './components/NodeComp';
+import NamespaceComp from './components/NamespaceComp';
 import ClusterComp from './components/ClusterComp';
-// import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 
 const App = (): JSX.Element => {
@@ -28,10 +27,10 @@ const App = (): JSX.Element => {
         <Sidebar />
         <BrowserRouter>
           <Routes>
-            <Route path='/metrics' element={<MetricsPage />} />
+            {/* <Route path='/metrics' element={<MetricsPage />} /> */}
             <Route path='/pod' element={<PodComp />} />
-            <Route path='/node' element={<NodeComp />} />
-            <Route path='/cluster' element={<ClusterComp />} />
+            <Route path='/namespace' element={<NamespaceComp />} />
+            <Route path='/' element={<ClusterComp />} />
             <Route path='/Structure' element={<StructurePage />} />
             <Route path='/alerts' element={<AlertsPage />} />
           </Routes>
