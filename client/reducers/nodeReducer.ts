@@ -11,17 +11,16 @@ const initialState: NodeState = {
 
 const nodeReducer = (state = initialState, action: AnyAction) => {
   const { type, payload } = action;
-  let nodeList: string[];
+  let newNodeList: string[] = [];
 
   switch (type) {
     case types.GET_NODES: {
       console.log('made it to the get node action reducer');
 
-      nodeList = state.nodeList.slice();
-      nodeList.push(payload);
+      newNodeList.push(payload);
       // console.log('NODE DATA', nodeList);
 
-      return { ...state, nodeList: nodeList };
+      return { nodeList: newNodeList };
     }
     default:
       return state;

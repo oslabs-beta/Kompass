@@ -6,7 +6,8 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.podContainer {
+.podContainer,
+.namespaceContainer {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -15,23 +16,6 @@ body {
 }
 
 .pod {
-  // position: relative;
-  // width: 200px;
-  // height: relative;
-  // margin: 20px 20px;
-  // background: #3c3b3b;
-  // border-radius: 50% / 10%;
-  // color: white;
-  // text-align: center;
-  // text-indent: 0.1em;
-  // z-index: 2;
-  // border-top: 2px solid pink;
-  // border-bottom: 2px solid pink;
-  // background: #3c3b3b;
-  // background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-  // background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
-  // background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
-
   background: hsla(223, 7%, 21%, 1);
 
   background: linear-gradient(
@@ -63,22 +47,7 @@ body {
   align-items: center;
   margin: 1em;
   box-shadow: 5px 5px 15px 0 rgba(220, 225, 235, 0.7);
-
-  // box-shadow: 10px 8px 15px 0 rgba(220, 225, 235, 0.7);
 }
-// .pod:after {
-//   content: '';
-//   position: absolute;
-//   top: 10%;
-//   bottom: 10%;
-//   right: -5%;
-//   left: -5%;
-//   background: inherit;
-//   border-radius: 5% / 50%;
-//   z-index: -1;
-//   border-left: 2px solid pink;
-//   border-right: 2px solid pink;
-// }
 
 .podInfo {
   z-index: 100;
@@ -95,8 +64,6 @@ body {
   flex-wrap: wrap;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  // border-bottom-left-radius: 10 px;
-  // border-bottom-right-radius: 10 px;
 }
 
 .nodeOverview,
@@ -107,26 +74,12 @@ body {
   margin: 1em;
   box-shadow: 5px 5px 15px 0 rgba(220, 225, 235, 0.7);
   padding: 1em;
-  // background-color: #313338;
-  // color: #0d1c37;
+
   color: white;
   border: 2px solid white;
-  // background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
   border-radius: 20px;
-  // border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
   font-family: 'Montserrat', sans-serif;
   overflow-y: auto;
-  // background-image: linear-gradient(110deg, #c2e59c 0%, #64b3f4 100%);
-  // background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
-  // background: rgb(13, 28, 55);
-  // background: rgb(13, 28, 55);
-  // background: linear-gradient(
-  //   332deg,
-  //   rgba(13, 28, 55, 1) 0%,
-  //   rgba(126, 198, 214, 1) 35%,
-  //   rgba(220, 225, 235, 1) 100%
-  // );
-  // );
 
   background: hsla(223, 7%, 21%, 1);
 
@@ -181,7 +134,6 @@ h1 {
 }
 
 .boxes {
-  // background-image: linear-gradient(to right, #bde3df 0%, #1a9ad0 100%);
   background-image: linear-gradient(
     to right,
     #4776e6 0%,
@@ -190,11 +142,6 @@ h1 {
   );
   border-radius: 20px;
 }
-// background: linear-gradient(
-//     90deg,
-//     rgba(220, 225, 235, 1) 0%,
-//     rgba(126, 198, 214, 1) 100%
-//   ); 1A9AD0
 
 .modal {
   background: hsla(223, 7%, 21%, 1);

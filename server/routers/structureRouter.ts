@@ -9,7 +9,7 @@ import { k8sController } from '../Controllers/k8sController';
 const structureRouter = express.Router();
 
 structureRouter.get(
-  '/node',
+  '/node/:name',
   k8sController.getAllNodes,
   (req: Request, res: Response) => {
     res.status(200).json(res.locals.nodeList);
@@ -17,12 +17,29 @@ structureRouter.get(
 );
 
 structureRouter.get(
-  '/pod',
+  '/pod/:name',
   k8sController.getAllPods,
   (req: Request, res: Response) => {
     res.status(200).json(res.locals.podList);
   }
 );
+
+structureRouter.get(
+  '/namespace',
+  k8sController.getAllNamespaces,
+  (req: Request, res: Response) => {
+    console.log('back to namespace router');
+    res.status(200).json(res.locals.namespace);
+  }
+);
+
+// structureRouter.get(
+//   '/pod',
+//   k8sController.getAllPods,
+//   (req: Request, res: Response) => {
+//     res.status(200).json(res.locals.podList);
+//   }
+// );
 
 // structureRouter.get(
 //   '/depl',

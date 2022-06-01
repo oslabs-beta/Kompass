@@ -23,14 +23,10 @@ KubeletVersion: nodeInfo[0].status.nodeInfo.kubeletVersion
 */
 
 const NodeStructure = (props: any): JSX.Element => {
-  // console.log('nodeInfo', props.nodeInfo);
-  // console.log('nodeStatus', props.nodeStatus);
-
   const { metadata, status } = props.nodeInfo[0];
   const { nodeInfo, conditions } = status;
   const nodeStatus = props.nodeStatus;
-
-  // console.log('nodeInfo', nodeInfo);
+  // console.log(props);
 
   return (
     <div

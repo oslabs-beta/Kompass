@@ -2,6 +2,8 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 // import reducers from './reducers/index';
 import podReducer from './reducers/podReducer';
 import nodeReducer from './reducers/nodeReducer';
+import namespaceReducer from './reducers/namespaceReducer';
+
 // import clusterReducer from './reducers/clusterReducer';
 // import deplReducer from './reducers/deplReducer';
 
@@ -9,6 +11,7 @@ export const store = configureStore({
   reducer: {
     podList: podReducer,
     nodeList: nodeReducer,
+    namespaceList: namespaceReducer,
     // cluster: clusterReducer,
     // deplList: deplReducer,
   },
