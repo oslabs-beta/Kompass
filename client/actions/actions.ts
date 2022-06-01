@@ -1,11 +1,6 @@
 import { newClusters } from '@kubernetes/client-node/dist/config_types';
 import * as actionTypes from './actionTypes';
 
-// export const addCardActionCreator = (marketId) => ({
-//   type: types.ADD_CARD,
-//   payload: marketId,
-// });
-
 export const getPods = (podsList: any | null) => ({
   type: actionTypes.GET_PODS,
   payload: podsList,
@@ -16,10 +11,10 @@ export const getNodes = (nodesList: any) => ({
   payload: nodesList,
 });
 
-// export const getCluster = (cluster: any) => ({
-//   type: actionTypes.GET_CLUSTER,
-//   payload: cluster,
-// });
+export const getNamespace = (namespaceList: any) => ({
+  type: actionTypes.GET_NAMESPACE,
+  payload: namespaceList,
+});
 
 export const getDepl = (depl: any) => ({
   type: actionTypes.GET_DEPL,

@@ -8,35 +8,50 @@ import { RootState } from '../../store';
 import NodeComp from '../../components/NodeStructure';
 import NodeStructure from '../../components/NodeStructure';
 import PodStructure from '../../components/PodStructure';
+import GetNamespaceComp from '../../components/GetNamespaceComp';
 
 const mapStateToProps = (state: RootState) => ({
   podList: state.podList,
   nodeList: state.nodeList,
-  // deplList: state.deplList,
+  namespaceList: state.namespaceList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   // create functions that will dispatch action creators
+  fetchNamespaceData: (): void => {
+    fetch('api/structure/namespace', {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((namespaceList) => {
+        dispatch(actions.getNamespace(namespaceList));
+      })
+      .catch((err) => console.log('Error in the fetchPodData:', err));
+  },
 
-  fetchPodData: (): void => {
-    fetch('api/structure/pod', {
+  fetchPodData: (query?: string): void => {
+    if (!query) {
+      query = 'default';
+    }
+    fetch(`api/structure/pod/${query}`, {
       method: 'GET',
     })
       .then((res) => res.json())
       .then((podList) => {
-        // console.log('pods HERE:', podList);
         dispatch(actions.getPods(podList));
       })
       .catch((err) => console.log('Error in the fetchPodData:', err));
   },
 
-  fetchNodeData: (): void => {
-    fetch('api/structure/node', {
+  fetchNodeData: (query?: string): void => {
+    if (!query) {
+      query = 'default';
+    }
+    fetch(`api/structure/node/${query}`, {
       method: 'GET',
     })
       .then((res) => res.json())
       .then((nodeList) => {
-        // console.log('node HERE:', nodeList);
         dispatch(actions.getNodes(nodeList));
       })
       .catch((err) => console.log('Error in the fetchNodeData:', err));
@@ -47,54 +62,60 @@ type KubeState = {
   nodeList?: any;
   podList?: any;
   deplList?: any;
+  namespaceList?: any;
+  fetchNamespaceData: () => void;
   fetchPodData: () => void;
   fetchNodeData: () => void;
-  // NodeStructure: React.ComponentType<NodeProps>;
-  // fetchDeplData: () => void;
 };
 
-interface NodeProps {
-  // [key: string]: any;
-  nodeInfo: any;
-}
-
-// class StructurePage extends Component<KubeState, NodeProps> {
-class StructurePage extends Component<KubeState, NodeProps> {
-  // constructor(props: any) {
-  //   super(props);
-  // }
-
+class StructurePage extends Component<KubeState> {
   componentDidMount(): void {
+    this.props.fetchNamespaceData();
     this.props.fetchNodeData();
     this.props.fetchPodData();
-    // this.props.fetchDeplData();
   }
 
   render() {
     const node: any = this.props.nodeList.nodeList[0];
-    const pod: any = this.props.podList.podList[0];
-    // const items = node.items;
-    // // const { nodeStatus } = node.nodeList.nodeStatus;
-    // if (pod) {
-    //   console.log('pod', pod);
-    // }
+    const namespace: any = this.props.namespaceList.namespaceList;
+
     return (
       <div
         style={{
           color: 'white',
-          // background: 'red',
           marginLeft: '250px',
           marginTop: '25px',
           marginRight: '10px',
           height: '900px',
-          // width: 'vw',
         }}
       >
         <div className='boxes'>
           <header>
+            <h1>Select a Namespace</h1>
+          </header>
+          <div
+            className='namespaceContainer'
+            style={{
+              background: '#121212',
+              display: 'flex',
+              height: '5em',
+            }}
+          >
+            {namespace && (
+              <GetNamespaceComp
+                namespaceInfo={namespace.body}
+                fetchPodData={this.props.fetchPodData}
+                fetchNodeData={this.props.fetchNodeData}
+              />
+            )}
+          </div>
+        </div>
+        <hr></hr>
+        <div className='boxes'>
+          <header>
             <h1>Pod Structure</h1>
           </header>
-          {pod && <PodStructure podInfo={pod.body} />}
+          <PodStructure podInfo={this.props.podList} />
         </div>
         <hr></hr>
 

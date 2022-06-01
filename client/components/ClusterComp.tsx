@@ -4,7 +4,6 @@ const ClusterComp = (): JSX.Element => {
   return (
     <div
       style={{
-        // background: 'black',
         marginLeft: '250px',
         marginTop: '25px',
         marginRight: '10px',

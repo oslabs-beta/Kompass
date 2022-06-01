@@ -35,7 +35,6 @@ app.use(
       message: { err: 'ERROR' },
     };
     const errorObj = Object.assign({}, globalErr, err);
-    console.log(errorObj.log);
     return res.status(errorObj.status).json(errorObj.message);
   }
 );

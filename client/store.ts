@@ -1,16 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-// import reducers from './reducers/index';
 import podReducer from './reducers/podReducer';
 import nodeReducer from './reducers/nodeReducer';
-// import clusterReducer from './reducers/clusterReducer';
-// import deplReducer from './reducers/deplReducer';
+import namespaceReducer from './reducers/namespaceReducer';
 
 export const store = configureStore({
   reducer: {
     podList: podReducer,
     nodeList: nodeReducer,
-    // cluster: clusterReducer,
-    // deplList: deplReducer,
+    namespaceList: namespaceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
