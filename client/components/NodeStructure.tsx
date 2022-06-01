@@ -1,32 +1,9 @@
 import React from 'react';
 
-/*
-nodeInfo:
-Creation Timestamp: nodeInfo[0].metadata.creationTimestamp // => "2022-05-17T19:10:09.000Z"
-Architecture: nodeInfo[0].metadata.kubernetes.io/arch // arm64
-OS: nodeInfo[0].metadata.kubernetes.io/os // linux
-Name: nodeInfo[0].metadata.name // minikube
-
-Node Internal IP Address: nodeInfo[0].status.addresses[0].address // => "192.168.49.2"
-CPU Allocated: nodeInfo[0].status.allocatable.cpu // => "4"
-CPU Capacity: nodeInfo[0].status.capacity.cpu  // => "4"
-Pods Allocated: nodeInfo[0].status.allocatable.pods // => "110"
-Pods Capacity: nodeInfo[0].status.capacity.pods // => "110"
-
-Conditions: nodeInfo[0].conditions // ARRAY 
-  // lastHeartbeatTime, Type, Message // => "kubelet has sufficient memory available"
-
-nodeInfo: 
-ContainerRuntime: nodeInfo[0].status.nodeInfo.containerRuntimeVersion => docker
-Kernel: nodeInfo[0].status.nodeInfo.kernelVersion // 5.10.104
-KubeletVersion: nodeInfo[0].status.nodeInfo.kubeletVersion 
-*/
-
 const NodeStructure = (props: any): JSX.Element => {
   const { metadata, status } = props.nodeInfo[0];
   const { nodeInfo, conditions } = status;
   const nodeStatus = props.nodeStatus;
-  // console.log(props);
 
   return (
     <div

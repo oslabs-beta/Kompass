@@ -15,11 +15,7 @@ const nodeReducer = (state = initialState, action: AnyAction) => {
 
   switch (type) {
     case types.GET_NODES: {
-      console.log('made it to the get node action reducer');
-
       newNodeList.push(payload);
-      // console.log('NODE DATA', nodeList);
-
       return { nodeList: newNodeList };
     }
     default:

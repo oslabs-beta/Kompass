@@ -44,10 +44,6 @@ const Sidebar = (): JSX.Element => {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar style={{ justifyContent: 'flex-end' }}>
-          {/* <IconButton aria-label="github icon" component="span">
-            <GitHubIcon href="https://github.com/oslabs-beta/Kompass" target="_blank" sx={{ fontSize: 35, color: 'white'}} />
-          </IconButton> */}
-          {/* <GitHubIcon component={Link} to="http://www.google.com" target="_blank" /> */}
           <a href='https://github.com/oslabs-beta/Kompass' target='_blank'>
             <GitHubIcon sx={{ fontSize: 35, color: 'white' }} />
           </a>
@@ -67,9 +63,13 @@ const Sidebar = (): JSX.Element => {
       >
         <Toolbar />
         <img src={String(logo)} alt='Kompass' style={{ width: 220 }} />
-
         <Divider />
         <List>
+          <ListItem disablePadding>
+            <ListItemButton component='a' href='/'>
+              <ListItemText primary='Structure' />
+            </ListItemButton>
+          </ListItem>
           <Accordion
             expanded={expanded === 'panel1'}
             onChange={handleChange('panel1')}
@@ -86,28 +86,21 @@ const Sidebar = (): JSX.Element => {
             <AccordionDetails>
               <List>
                 <ListItem disablePadding>
-                  <ListItemButton component='a' href='/'>
+                  <ListItemButton component='a' href='/cluster'>
                     <ListItemText primary='Clusters' />
                   </ListItemButton>
                 </ListItem>
                 <ListItemButton component='a' href='/namespace'>
                   <ListItemText primary='Namespace' />
                 </ListItemButton>
-                {/* <ListItem disablePadding>
-                  <ListItemButton component='a' href='/pod'>
-                  <ListItemText primary='Pods' />
-                  </ListItemButton>
-                </ListItem> */}
               </List>
             </AccordionDetails>
           </Accordion>
-          {['Structure', 'Alerts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton component='a' href={text}>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <ListItem disablePadding>
+            <ListItemButton component='a' href='/alerts'>
+              <ListItemText primary='Alerts' />
+            </ListItemButton>
+          </ListItem>
         </List>
         <Divider />
       </Drawer>

@@ -14,46 +14,32 @@ const k8sApi2 = kc.makeApiClient(k8s.AppsV1Api);
 
 const metricsClient = new k8s.Metrics(kc);
 
-// console.log(k8sApi);
-// console.log(metricsClient);
-
 //define type
 type k8sControllerType = {
   getAllPods: (req: Request, res: Response, next: NextFunction) => void;
   getAllNodes: (req: Request, res: Response, next: NextFunction) => void;
   getAllNamespaces: (req: Request, res: Response, next: NextFunction) => void;
-
-  // getTopPod: (req: Request, res: Response, next: NextFunction) => void;
 };
 
 export const k8sController: k8sControllerType = {
   getAllPods: async (req: Request, res: Response, next: NextFunction) => {
-    // console.log('RP', req.params);
-
     const { name } = req.params;
 
-    console.log('In the getAllPods! controller yay!');
     try {
-      console.log('k8 controller NS', name);
       const podsResult = await k8sApi.listNamespacedPod(name);
-      // const podsResult = await k8sApi.listPodForAllNamespaces();
 
       res.locals.podList = podsResult;
       return next();
     } catch (err) {
-      console.log('Error in k8Controller getAllPods', err);
       return next(err);
     }
   },
 
   getAllNodes: async (req: Request, res: Response, next: NextFunction) => {
-    console.log('In the getAllNodes controller yay!');
     const { name } = req.params;
-    // console.log('nameNodes', name)
-    // console.log('In the getAllNodes controller yay!');
+
     try {
       const nodeResult = await k8sApi.listNode(name);
-      // console.log('contrl', nodeResult.body);
       res.locals.nodeList = nodeResult.body;
 
       const nodeStatus = await k8sApi.listComponentStatus();
@@ -61,69 +47,18 @@ export const k8sController: k8sControllerType = {
 
       return next();
     } catch (err) {
-      console.log('Error in k8Controller getAllNodes', err);
       return next(err);
     }
   },
 
   getAllNamespaces: async (req: Request, res: Response, next: NextFunction) => {
-    console.log('In the getAllNamespaces controller yay!');
     try {
       const namespaceResult = await k8sApi.listNamespace();
 
       res.locals.namespace = namespaceResult;
       return next();
     } catch (err) {
-      console.log('Error in k8Controller getAllNamespace', err);
       return next(err);
     }
   },
-
-  // getDeployments: async (req: Request, res: Response, next: NextFunction) => {
-  //   console.log('In the getDeployments controller yay!');
-  //   try {
-  //     const deplResult = await k8sApi2.listNamespacedDeployment('default');
-  //     res.locals.deplList = deplResult;
-
-  //     return next();
-  //   } catch (err) {
-  //     console.log('Error in k8Controller getAllNodes', err);
-  //     return next(err);
-  //   }
-  // },
-
-  // getTopPod: async (req: Request, res: Response, next: NextFunction) => {
-  //   console.log('In the getTopPod controller yay!');
-
-  //   const grabPod = await k8s.topPods(k8sApi, metricsClient, 'monitoring');
-  // console.log('COREY TOP POD', grabPod.body);
-
-  // const podsColumns = await grabPod.map((pod: any) => {
-  //   console.log(pod);
-  //   // return {
-  //   //   POD: pod.Pod.metadata.name,
-  //   //   'CPU(cores)': pod.CPU.CurrentUsage,
-  //   //   'MEMORY(bytes)': pod.Memory.CurrentUsage,
-  //   // };
-  // });
-  // console.log('TOP PODS');
-  // console.table(podsColumns);
-
-  // k8s.topPods(k8sApi, metricsClient, 'kube-system').then((pods: any) => {
-  //   const podsAndContainersColumns = pods.flatMap((pod: any) => {
-  //     return pod.Containers.map((containerUsage: any) => {
-  //       return {
-  //         POD: pod.Pod.metadata.name,
-  //         NAME: containerUsage.Container,
-  //         'CPU(cores)': containerUsage.CPUUsage.CurrentUsage,
-  //         'MEMORY(bytes)': containerUsage.MemoryUsage.CurrentUsage,
-  //       };
-  //     });
-  //   });
-
-  //   console.log('TOP CONTAINERS');
-  //   console.table(podsAndContainersColumns);
-  // });
-  //   return next();
-  // },
 };

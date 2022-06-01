@@ -14,7 +14,6 @@ const mapStateToProps = (state: RootState) => ({
   podList: state.podList,
   nodeList: state.nodeList,
   namespaceList: state.namespaceList,
-  // deplList: state.deplList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -25,24 +24,20 @@ const mapDispatchToProps = (dispatch: any) => ({
     })
       .then((res) => res.json())
       .then((namespaceList) => {
-        // console.log('pods HERE:', podList);
         dispatch(actions.getNamespace(namespaceList));
       })
       .catch((err) => console.log('Error in the fetchPodData:', err));
   },
 
   fetchPodData: (query?: string): void => {
-    // console.log('query', query);
     if (!query) {
       query = 'default';
     }
-    // console.log(query);
     fetch(`api/structure/pod/${query}`, {
       method: 'GET',
     })
       .then((res) => res.json())
       .then((podList) => {
-        // console.log('pods HERE:', podList);
         dispatch(actions.getPods(podList));
       })
       .catch((err) => console.log('Error in the fetchPodData:', err));
@@ -57,7 +52,6 @@ const mapDispatchToProps = (dispatch: any) => ({
     })
       .then((res) => res.json())
       .then((nodeList) => {
-        // console.log('node HERE:', nodeList);
         dispatch(actions.getNodes(nodeList));
       })
       .catch((err) => console.log('Error in the fetchNodeData:', err));
@@ -72,52 +66,18 @@ type KubeState = {
   fetchNamespaceData: () => void;
   fetchPodData: () => void;
   fetchNodeData: () => void;
-  // NodeStructure: React.ComponentType<NodeProps>;
-  // fetchDeplData: () => void;
 };
 
-interface NodeProps {
-  // [key: string]: any;
-  // nodeInfo: any;
-  // namespaceInfo: any;
-}
-
-// const [namespace, setNamespace] = React.useState('default');
-
-// class StructurePage extends Component<KubeState, NodeProps> {
-class StructurePage extends Component<KubeState, NodeProps> {
-  // constructor(props: any) {
-  //   super(props);
-  // }
-
-  // handleNamespaceChange = (e: any): void => {
-  //   // console.log('getcomp ns', e.target.value);
-  //   // setNs(e.target.value as string);
-  //   this.props.fetchPodData(e.target.value);
-  //   // props.fetchNodeData(ns)
-  // };
-
+class StructurePage extends Component<KubeState> {
   componentDidMount(): void {
     this.props.fetchNamespaceData();
     this.props.fetchNodeData();
     this.props.fetchPodData();
-    // this.props.fetchDeplData();
   }
-
-  // componentDidUpdate(): void {
-  //   this.props.podList;
-  // }
 
   render() {
     const node: any = this.props.nodeList.nodeList[0];
-    // const pod: any = this.props.podList.podList[0];
     const namespace: any = this.props.namespaceList.namespaceList;
-
-    console.log('rendering', this.props.podList);
-    // const { items } = namespace;
-
-    // console.log('pod', pod);
-    // console.log('namespace', namespace);
 
     return (
       <div
@@ -155,7 +115,6 @@ class StructurePage extends Component<KubeState, NodeProps> {
           <header>
             <h1>Pod Structure</h1>
           </header>
-          {/* {pod && <PodStructure podInfo={pod.body} />} */}
           <PodStructure podInfo={this.props.podList} />
         </div>
         <hr></hr>

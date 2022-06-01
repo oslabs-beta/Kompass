@@ -15,11 +15,7 @@ const podReducer = (state = initialState, action: AnyAction) => {
 
   switch (type) {
     case types.GET_PODS: {
-      console.log('pod', payload);
-
-      console.log('made it to the get pods action reducer');
       newPodList.push(payload);
-      console.log('NEWpod', newPodList);
 
       return { podList: newPodList };
     }

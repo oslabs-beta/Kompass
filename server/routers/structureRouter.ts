@@ -28,33 +28,8 @@ structureRouter.get(
   '/namespace',
   k8sController.getAllNamespaces,
   (req: Request, res: Response) => {
-    console.log('back to namespace router');
     res.status(200).json(res.locals.namespace);
   }
 );
-
-// structureRouter.get(
-//   '/pod',
-//   k8sController.getAllPods,
-//   (req: Request, res: Response) => {
-//     res.status(200).json(res.locals.podList);
-//   }
-// );
-
-// structureRouter.get(
-//   '/depl',
-//   k8sController.getAllPods,
-//   (req: Request, res: Response) => {
-//     res.status(200).json(res.locals.deplList);
-//   }
-// );
-
-// structureRouter.get(
-//   '/topPod',
-//   k8sController.getTopPod,
-//   (req: Request, res: Response) => {
-//     res.status(200).json(res.locals.podList);
-//   }
-// );
 
 module.exports = structureRouter;

@@ -8,23 +8,23 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 const GetNamespaceComp = (props: any): JSX.Element => {
   const { items } = props.namespaceInfo || {};
   const [ns, setNs] = React.useState('');
-  // const { items } = names || {};
-  // console.log('ns', items);
 
   let allNamespaces: string[] = [];
 
   if (items) {
-    allNamespaces = items.map((item: any) => {
+    allNamespaces = items.map((item: any, index: number) => {
       const name: string = item.metadata.name;
-      return <MenuItem value={name}>{name}</MenuItem>;
+      return (
+        <MenuItem value={name} key={index}>
+          {name}
+        </MenuItem>
+      );
     });
   }
 
   const handleNamespaceChange = (e: any): void => {
-    console.log('getcomp ns', e.target.value);
     setNs(e.target.value as string);
     props.fetchPodData(e.target.value);
-    // props.fetchNodeData(ns)
   };
 
   return (
@@ -34,13 +34,7 @@ const GetNamespaceComp = (props: any): JSX.Element => {
           <InputLabel id='demo-simple-select-label'>
             Namespace (default)
           </InputLabel>
-          <Select
-            // labelId='demo-simple-select-label'
-            id='drop-down'
-            value={ns}
-            // label='default'
-            onChange={handleNamespaceChange}
-          >
+          <Select id='drop-down' value={ns} onChange={handleNamespaceChange}>
             {allNamespaces}
           </Select>
         </FormControl>
