@@ -11,15 +11,17 @@ const initialState: PodState = {
 
 const podReducer = (state = initialState, action: AnyAction) => {
   const { type, payload } = action;
-  let podList: string[];
+  let newPodList: string[] = [];
 
   switch (type) {
     case types.GET_PODS: {
-      console.log('made it to the get pods action reducer');
-      podList = state.podList.slice();
-      podList.push(payload);
+      console.log('pod', payload);
 
-      return { ...state, podList: podList };
+      console.log('made it to the get pods action reducer');
+      newPodList.push(payload);
+      console.log('NEWpod', newPodList);
+
+      return { podList: newPodList };
     }
     default:
       return state;
