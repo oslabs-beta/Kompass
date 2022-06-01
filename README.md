@@ -12,19 +12,19 @@ Kompass is an easy to integrate, open-source monitoring tool for your Kubernetes
 
 Our interactive structure page displays your cluster's architecture along with relevant data like names, IP adresses, and resource allocations.
 
-_GIF GOES HERE_ [![Structure Page]({} "Structure Page)
+<img src="./client/assets/structure.gif" width="600" height="360" />
 
 ### Metrics
 
 Our persisted Grafana dashboards take the guess work out of tracking your cluster's health. Quickly view your cluster's resource utilization, network data, or pod health per namespace.
 
-_GIF GOES HERE_
+<img src="./client/assets/Metrics.gif" width="600" />
 
 ### Alerts
 
 Kompass also includes full Prometheus Alerts integration to access alerts, graphs, and direct prom-queries.
 
-_GIF GOES HERE_
+<img src="./client/assets/Alerts.gif" width="600" height="360" />
 
 # Setup
 
