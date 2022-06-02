@@ -30,13 +30,11 @@ _GIF GOES HERE_
 
 ### Notes:
 
-- This app assumes you have direct access to your Kubernetes cluster and have Kubernetes CLI (Kubectl) installed.
+- This app assumes you have direct access to your Kubernetes cluster (i.e. minikube) and have Kubernetes CLI (Kubectl) installed.
 
 ## Clone repo & cd into it, then run:
 
 ```
-
-minikube start --driver=docker
 
 kubectl create namespace monitoring
 
@@ -46,14 +44,20 @@ kubectl apply -f Manifest/
 
 ---
 
-### Display your grafana & prometheus pod names:
+### Display your Kompass pod name:
+```
+
+kubectl get pod
+
+```
+
+### Display your Grafana & Prometheus pod names:
 
 ```
 
 kubectl get pod --namespace=monitoring
 
 ```
-
 ---
 
 ### Forward ports to view application:
@@ -78,7 +82,7 @@ Open a new tab in your terminal with command+'t' and forward your kompass port:
 
 ```
 
-kubectl port-forward <kompass-pod-name> --namespace=<namespace-kompass-is-in> 3036:3036
+kubectl port-forward <kompass-pod-name> 3036:3036
 
 ```
 
