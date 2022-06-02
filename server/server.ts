@@ -16,18 +16,24 @@ const app = express();
 // parse request body using express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/', express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use('/api/structure', structureRouter);
 
-// catch-all router handler for any request to an unknown route
-app.use('*', (req, res) => {
-  return res.status(404).send('ERROR, ROUTE NOT FOUND');
+// Sends the index.html to all routes (for server-side ReactRouter)
+app.use('*', (req, res, next) => {
+  const error = {
+    status: 404,
+    message: { err: 'Not Found' },
+  };
+  return res.status(200).sendFile(path.join(__dirname, '../dist/index.html'));
+
+  next(error);
 });
 
 // global error handling
 app.use(
-  '/',
+  // '/',
   (err: ServerError, req: Request, res: Response, next: NextFunction) => {
     const globalErr = {
       log: 'UNKNOWN MIDDLEWARE ERROR',
